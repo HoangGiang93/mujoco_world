@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-04-05, commit time:18:12, hash:abf6f08</authoring_tool>
+    </contributor>
+    <created>2016-08-24T16:12:05</created>
+    <modified>2016-08-24T16:12:05</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="KitchenFronts-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.2746773 0.2874408 0.2704979 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.3396861 0.3396861 0.3396861 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">3</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="KitchenDark-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.01758339 0.01758339 0.01758339 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.03492923 0.03492923 0.03492923 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">3</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="KitchenFronts-material" name="KitchenFronts">
+      <instance_effect url="#KitchenFronts-effect"/>
+    </material>
+    <material id="KitchenDark-material" name="KitchenDark">
+      <instance_effect url="#KitchenDark-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="island-mesh" name="island">
+      <mesh>
+        <source id="island-mesh-positions">
+          <float_array id="island-mesh-positions-array" count="168">-0.2975001 -1.129167 -0.421 -0.2975001 -1.099167 -0.421 0.3024999 -1.099167 -0.421 0.3024999 -1.129167 -0.421 -0.2975001 -1.129167 0.399 -0.2975001 -1.099167 0.399 0.3024999 -1.099167 0.399 0.3024999 -1.129167 0.399 -0.2975001 1.100833 -0.421 -0.2975001 1.130833 -0.421 0.3024999 1.130833 -0.421 0.3024999 1.100833 -0.421 -0.2975001 1.100833 0.399 -0.2975001 1.130833 0.399 0.3024999 1.130833 0.399 0.3024999 1.100833 0.399 -0.4000006 -1.229167 0.3990001 -0.4000006 1.220833 0.3990001 0.4000006 1.220833 0.3990001 0.4000006 -1.229167 0.3990001 -0.4000006 -1.229167 0.4310001 -0.4000006 1.220833 0.4310001 0.4000006 1.220833 0.4310001 0.4000006 -1.229167 0.4310001 -0.2875002 -1.099167 -0.421 -0.2875002 1.100833 -0.421 0.2224998 1.100833 -0.421 0.2224998 -1.099167 -0.421 -0.2875002 -1.099167 -0.321 -0.2875002 1.100833 -0.321 0.2224998 1.100833 -0.321 0.2224998 -1.099167 -0.321 -0.2875002 -0.514167 -0.421 -0.2875002 -0.484167 -0.421 0.2224999 -0.484167 -0.421 0.2224999 -0.514167 -0.421 -0.2875002 -0.514167 0.399 -0.2875002 -0.484167 0.399 0.2224999 -0.484167 0.399 0.2224999 -0.514167 0.399 -0.2875002 0.4858331 -0.421 -0.2875002 0.5158331 -0.421 0.2224999 0.5158331 -0.421 0.2224999 0.4858331 -0.421 -0.2875002 0.4858331 0.399 -0.2875002 0.5158331 0.399 0.2224999 0.5158331 0.399 0.2224999 0.4858331 0.399 -0.2975001 -1.099167 -0.421 -0.2975001 1.100833 -0.421 -0.2775002 1.100833 -0.421 -0.2775001 -1.099167 -0.421 -0.2975001 -1.099167 0.399 -0.2975001 1.100833 0.3990001 -0.2775002 1.100833 0.3990001 -0.2775001 -1.099167 0.399</float_array>
+          <technique_common>
+            <accessor source="#island-mesh-positions-array" count="56" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="island-mesh-normals">
+          <float_array id="island-mesh-normals-array" count="30">0 0 1 -1 0 0 0 1 0 1 0 0 0 -1 0 0 0 -1 1 0 0 0 0 1 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#island-mesh-normals-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="island-mesh-vertices">
+          <input semantic="POSITION" source="#island-mesh-positions"/>
+        </vertices>
+        <polylist material="KitchenFronts-material" count="2">
+          <input semantic="VERTEX" source="#island-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#island-mesh-normals" offset="1"/>
+          <vcount>3 3 </vcount>
+          <p>22 0 21 0 20 0 23 0 22 0 20 0</p>
+        </polylist>
+        <polylist material="KitchenDark-material" count="82">
+          <input semantic="VERTEX" source="#island-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#island-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>5 1 1 1 0 1 6 2 2 2 1 2 7 3 3 3 2 3 4 4 0 4 3 4 1 5 2 5 3 5 6 0 5 0 4 0 13 1 9 1 8 1 14 2 10 2 9 2 15 3 11 3 10 3 12 4 8 4 11 4 9 5 10 5 11 5 14 0 13 0 12 0 21 1 17 1 16 1 22 2 18 2 17 2 23 3 19 3 18 3 20 4 16 4 19 4 17 5 18 5 19 5 29 1 25 1 24 1 30 2 26 2 25 2 31 3 27 3 26 3 28 4 24 4 27 4 25 5 26 5 27 5 30 0 29 0 28 0 37 1 33 1 32 1 38 2 34 2 33 2 39 3 35 3 34 3 36 4 32 4 35 4 33 5 34 5 35 5 38 0 37 0 36 0 45 1 41 1 40 1 46 2 42 2 41 2 47 3 43 3 42 3 44 4 40 4 43 4 41 5 42 5 43 5 46 0 45 0 44 0 53 1 49 1 48 1 54 2 50 2 49 2 55 6 51 6 50 6 52 4 48 4 51 4 49 5 50 5 51 5 54 7 53 7 52 7 4 1 5 1 0 1 5 2 6 2 1 2 6 3 7 3 2 3 7 4 4 4 3 4 0 5 1 5 3 5 7 0 6 0 4 0 12 1 13 1 8 1 13 2 14 2 9 2 14 3 15 3 10 3 15 4 12 4 11 4 8 5 9 5 11 5 15 0 14 0 12 0 20 1 21 1 16 1 21 2 22 2 17 2 22 3 23 3 18 3 23 4 20 4 19 4 16 5 17 5 19 5 28 1 29 1 24 1 29 2 30 2 25 2 30 3 31 3 26 3 31 4 28 4 27 4 24 5 25 5 27 5 31 0 30 0 28 0 36 1 37 1 32 1 37 2 38 2 33 2 38 3 39 3 34 3 39 4 36 4 35 4 32 5 33 5 35 5 39 0 38 0 36 0 44 1 45 1 40 1 45 2 46 2 41 2 46 3 47 3 42 3 47 4 44 4 43 4 40 5 41 5 43 5 47 0 46 0 44 0 52 1 53 1 48 1 53 2 54 2 49 2 54 8 55 8 50 8 55 4 52 4 51 4 48 5 49 5 51 5 55 9 54 9 52 9</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="island_rack" name="island_rack" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#island-mesh" name="island_rack">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="KitchenFronts-material" target="#KitchenFronts-material"/>
+              <instance_material symbol="KitchenDark-material" target="#KitchenDark-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
