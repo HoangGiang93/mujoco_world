@@ -1,5 +1,5 @@
 <mujoco>
-  <option timestep="0.005" integrator="RK4" gravity="0 0 -9.81" noslip_iterations="10" noslip_tolerance="1e-9">
+  <option timestep="0.005" integrator="RK4" gravity="0 0 -9.81" noslip_iterations="2" noslip_tolerance="1e-6">
     <flag sensornoise="disable" energy="enable" contact="enable" />
   </option>
 
@@ -3314,6 +3314,17 @@
   </contact>
 
   <contact>
+    <exclude body1="world" body2="front_left_wheel_link" />
+    <exclude body1="world" body2="front_right_wheel_link" />
+    <exclude body1="world" body2="rear_left_wheel_link" />
+    <exclude body1="world" body2="rear_right_wheel_link" />
+
+    <exclude body1="ridgeback_panda" body2="front_rocker_link" />
+    <exclude body1="ridgeback_panda" body2="front_left_wheel_link" />
+    <exclude body1="ridgeback_panda" body2="front_right_wheel_link" />
+    <exclude body1="ridgeback_panda" body2="rear_left_wheel_link" />
+    <exclude body1="ridgeback_panda" body2="rear_right_wheel_link" />
+
     <exclude body1="panda_link1" body2="panda_link2" />
     <exclude body1="panda_link1" body2="panda_link3" />
     <exclude body1="panda_link1" body2="panda_link3" />

@@ -27,6 +27,7 @@ gripper = "panda_hand"
 
 N_tries = 2
 
+
 def set_objects_unreal():
     objects = []
     object = ObjectStatus()
@@ -194,14 +195,33 @@ def get_pose_gripper_T_object(target_object):
         t = tf_listener.getLatestCommonTime(gripper, target_object)
         return tf_listener.lookupTransform(gripper, target_object, t)
 
+
 def get_pose_gripper_T_shelf_layer(shelf_layer):
     try:
-        trans = tfBuffer.lookup_transform(target_frame=gripper, source_frame=shelf_layer, time=rospy.Time(), timeout=rospy.Duration(10))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
+        trans = tfBuffer.lookup_transform(
+            target_frame=gripper,
+            source_frame=shelf_layer,
+            time=rospy.Time(),
+            timeout=rospy.Duration(10),
+        )
+    except (
+        tf2_ros.LookupException,
+        tf2_ros.ConnectivityException,
+        tf2_ros.ExtrapolationException,
+    ) as e:
         rospy.logwarn(e)
     else:
-        pos = [trans.transform.translation.x, trans.transform.translation.y, trans.transform.translation.z]
-        quat = [trans.transform.rotation.x, trans.transform.rotation.y, trans.transform.rotation.z, trans.transform.rotation.w]
+        pos = [
+            trans.transform.translation.x,
+            trans.transform.translation.y,
+            trans.transform.translation.z,
+        ]
+        quat = [
+            trans.transform.rotation.x,
+            trans.transform.rotation.y,
+            trans.transform.rotation.z,
+            trans.transform.rotation.w,
+        ]
         return pos, tf.transformations.quaternion_multiply(quat, [0.5, 0.5, 0.5, -0.5])
 
 
@@ -296,6 +316,7 @@ def move_arm_to_post_pick():
     move_arm(goal)
     return None
 
+
 def move_arm_to_pre_place(target_shelf_layer):
     N = 0
     while True:
@@ -306,10 +327,7 @@ def move_arm_to_pre_place(target_shelf_layer):
         move_arm(goal)
         _, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
         r, p, y = tf.transformations.euler_from_quaternion(quat)
-        if (abs(r) < 0.01
-            and abs(p) < 0.01
-            and abs(y) < 0.01
-        ) or N == N_tries:
+        if (abs(r) < 0.01 and abs(p) < 0.01 and abs(y) < 0.01) or N == N_tries:
             break
         N = N + 1
     N = 0
@@ -345,6 +363,7 @@ def move_arm_to_pre_place(target_shelf_layer):
         N = N + 1
     return None
 
+
 def move_arm_to_place(target_shelf_layer):
     N = 0
     while True:
@@ -379,12 +398,14 @@ def move_arm_to_place(target_shelf_layer):
         N = N + 1
     return None
 
+
 def move_arm_to_post_place():
     goal = PoseStamped()
     goal.header.frame_id = gripper
     goal.pose.position = Point(0, 0, -0.3)
     move_arm(goal)
     return None
+
 
 if __name__ == "__main__":
     rospy.init_node("replenishment")
@@ -412,50 +433,43 @@ if __name__ == "__main__":
 
     move_to_target(ms_move_base_client, 10.5, -3.6, 0.0)
 
-    rospy.sleep(5)
-    move_to_target(rp_move_base_client, 7.0, -3.6, 0.0)
+    for i in range(3):
+        goal_js = {
+            "panda_joint1": 0.0,
+            "panda_joint2": 1.0,
+            "panda_joint3": 0.0,
+            "panda_joint4": -0.6,
+            "panda_joint5": 0.0,
+            "panda_joint6": 1.6,
+            "panda_joint7": 0.7,
+        }
+        set_joint_goal(goal_js)
 
-    rp_move_base_client.wait_for_result()
+        move_to_target(rp_move_base_client, 7.0, -3.6, 0.0)
 
-    goal_js = {
-        "panda_joint1": 0.0,
-        "panda_joint2": 1.0,
-        "panda_joint3": 0.0,
-        "panda_joint4": -0.6,
-        "panda_joint5": 0.0,
-        "panda_joint6": 1.6,
-        "panda_joint7": 0.7,
-    }
-    set_joint_goal(goal_js)
+        rp_move_base_client.wait_for_result()
 
-    target_object = "ProductWithAN036946_1"
-    move_arm_to_pre_pick(target_object)
+        target_object = "ProductWithAN036946_" + str(i)
+        move_arm_to_pre_pick(target_object)
 
-    move_arm_to_pick(target_object)
+        move_arm_to_pick(target_object)
 
-    control_gripper(gripper_client, open=False)
+        control_gripper(gripper_client, open=False)
 
-    move_arm_to_post_pick()
+        move_arm_to_post_pick()
 
-    target_shelf_layer = "ShelfLayer6TilesL38"
-    move_arm_to_pre_place(target_shelf_layer)
+        target_shelf_layer = "ShelfLayer6TilesL38"
+        move_arm_to_pre_place(target_shelf_layer)
 
-    move_arm_to_place(target_shelf_layer)
+        move_arm_to_place(target_shelf_layer)
 
-    control_gripper(gripper_client, open=True)
+        control_gripper(gripper_client, open=True)
 
-    move_arm_to_post_place()
+        move_arm_to_post_place()
 
-    goal_js = {
-        "panda_joint1": 0.0,
-        "panda_joint2": 1.0,
-        "panda_joint3": 0.0,
-        "panda_joint4": -0.6,
-        "panda_joint5": 0.0,
-        "panda_joint6": 1.6,
-        "panda_joint7": 0.7,
-    }
-    set_joint_goal(goal_js)
+        move_to_target(rp_move_base_client, 7.0, -3.6, 0.0)
+
+        rp_move_base_client.wait_for_result()
 
     # # Create a goal for the right hand
     # giskard_wrapper.allow_self_collision()
