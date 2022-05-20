@@ -1,0 +1,9 @@
+<mujoco>
+  <worldbody>
+    <body>
+      <freejoint />
+      <inertial pos="0.000653 0.000005 0.000188" mass="0.01" fullinertia="0.000784 0.000823 0.000157 0.000000 0.000000 0.000000" />
+      <geom type="box" size="0.026531 0.020535 0.072022" rgba="1.000000 1.000000 1.000000 1.000000" />
+    </body>
+  </worldbody>
+</mujoco>
