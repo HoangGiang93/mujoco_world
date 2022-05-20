@@ -12,6 +12,8 @@ from geometry_msgs.msg import PoseStamped, Point, Quaternion
 
 import tf
 import math
+
+import tf2_ros
 from tf2_ros import TransformException
 
 import actionlib
@@ -23,6 +25,7 @@ from typing import Dict
 
 gripper = "panda_hand"
 
+N_tries = 2
 
 def set_objects_unreal():
     objects = []
@@ -101,7 +104,7 @@ def set_objects_mujoco():
     object.pose.orientation.w = 1.0
     objects.append(object)
 
-    for i in range(1):
+    for i in range(3):
         object = ObjectStatus()
         object.info.name = "ProductWithAN036946_" + str(i)
         object.info.type = ObjectInfo.MESH
@@ -158,7 +161,7 @@ def control_gripper(client: actionlib.SimpleActionClient, open: bool):
     client.wait_for_server()
     gripper_cmd_goal = GripperCommandGoal()
     gripper_cmd_goal.command.position = open * 0.4
-    gripper_cmd_goal.command.max_effort = 5000.0
+    gripper_cmd_goal.command.max_effort = 1000.0
     client.send_goal(gripper_cmd_goal)
     client.wait_for_result()
     return None
@@ -180,8 +183,7 @@ def move_arm(goal: PoseStamped):
     return None
 
 
-def get_pos_gripper_T_object(target_object):
-    tf_listener = tf.TransformListener()
+def get_pose_gripper_T_object(target_object):
     try:
         tf_listener.waitForTransform(
             gripper, target_object, rospy.Time(), rospy.Duration(5)
@@ -190,12 +192,20 @@ def get_pos_gripper_T_object(target_object):
         rospy.logwarn(gripper + " or " + target_object + " not found")
     else:
         t = tf_listener.getLatestCommonTime(gripper, target_object)
-        pos, _ = tf_listener.lookupTransform(gripper, target_object, t)
-        return pos
+        return tf_listener.lookupTransform(gripper, target_object, t)
+
+def get_pose_gripper_T_shelf_layer(shelf_layer):
+    try:
+        trans = tfBuffer.lookup_transform(target_frame=gripper, source_frame=shelf_layer, time=rospy.Time(), timeout=rospy.Duration(10))
+    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
+        rospy.logwarn(e)
+    else:
+        pos = [trans.transform.translation.x, trans.transform.translation.y, trans.transform.translation.z]
+        quat = [trans.transform.rotation.x, trans.transform.rotation.y, trans.transform.rotation.z, trans.transform.rotation.w]
+        return pos, tf.transformations.quaternion_multiply(quat, [0.5, 0.5, 0.5, -0.5])
 
 
 def get_quat_gripper_T_gripper_goal():
-    tf_listener = tf.TransformListener()
     try:
         tf_listener.waitForTransform("map", gripper, rospy.Time(), rospy.Duration(5))
     except TransformException as e:
@@ -213,17 +223,18 @@ def get_quat_gripper_T_gripper_goal():
 def move_arm_to_pre_pick(target_object):
     N = 0
     while True:
-        pos = get_pos_gripper_T_object(target_object)
+        pos, _ = get_pose_gripper_T_object(target_object)
         quat = get_quat_gripper_T_gripper_goal()
         r, p, y = tf.transformations.euler_from_quaternion(quat)
+        pos[2] -= 0.2
         rospy.loginfo("Delta Position: [" + str(pos[0]) + ", " + str(pos[1]) + "]")
         rospy.loginfo("Delta RPY: [" + str(r) + ", " + str(p) + ", " + str(y) + "]")
         goal = PoseStamped()
         goal.header.frame_id = gripper
-        goal.pose.position = Point(pos[0], pos[1], pos[2] - 0.2)
+        goal.pose.position = Point(pos[0], pos[1], pos[2])
         goal.pose.orientation = Quaternion(quat[0], quat[1], quat[2], quat[3])
         move_arm(goal)
-        pos = get_pos_gripper_T_object(target_object)
+        pos, _ = get_pose_gripper_T_object(target_object)
         quat = get_quat_gripper_T_gripper_goal()
         r, p, y = tf.transformations.euler_from_quaternion(quat)
         if (
@@ -232,7 +243,7 @@ def move_arm_to_pre_pick(target_object):
             and abs(r) < 0.01
             and abs(p) < 0.01
             and abs(y) < 0.01
-        ) or N == 5:
+        ) or N == N_tries:
             break
         N = N + 1
     return None
@@ -241,7 +252,7 @@ def move_arm_to_pre_pick(target_object):
 def move_arm_to_pick(target_object):
     N = 0
     while True:
-        pos = get_pos_gripper_T_object(target_object)
+        pos, _ = get_pose_gripper_T_object(target_object)
         quat = get_quat_gripper_T_gripper_goal()
         r, p, y = tf.transformations.euler_from_quaternion(quat)
         pos[2] -= 0.1
@@ -259,43 +270,129 @@ def move_arm_to_pick(target_object):
         goal.pose.position = Point(pos[0], pos[1], pos[2])
         goal.pose.orientation = Quaternion(quat[0], quat[1], quat[2], quat[3])
         move_arm(goal)
-        pos = get_pos_gripper_T_object(target_object)
+        pos, _ = get_pose_gripper_T_object(target_object)
         quat = get_quat_gripper_T_gripper_goal()
         r, p, y = tf.transformations.euler_from_quaternion(quat)
         if (
             abs(pos[0]) < 0.01
             and abs(pos[1]) < 0.01
-            and abs(pos[2]) < 0.01
             and abs(r) < 0.01
             and abs(p) < 0.01
             and abs(y) < 0.01
-        ) or N == 5:
+        ) or N == N_tries:
             break
         N = N + 1
     return None
 
 
-def move_arm_to_post_pick(target_object):
-    pos = get_pos_gripper_T_object(target_object)
-    pos[2] -= 0.2
-    rospy.loginfo(
-        "Delta Position: ["
-        + str(pos[0])
-        + ", "
-        + str(pos[1])
-        + ", "
-        + str(pos[2])
-        + "]"
-    )
+def move_arm_to_post_pick():
     goal = PoseStamped()
     goal.header.frame_id = gripper
-    goal.pose.position = Point(pos[0], pos[1], pos[2])
+    goal.pose.position = Point(0.0, 0.0, -0.3)
+    move_arm(goal)
+    goal = PoseStamped()
+    goal.header.frame_id = gripper
+    goal.pose.position = Point(-0.4, 0.0, 0.0)
     move_arm(goal)
     return None
 
+def move_arm_to_pre_place(target_shelf_layer):
+    N = 0
+    while True:
+        _, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
+        goal = PoseStamped()
+        goal.header.frame_id = gripper
+        goal.pose.orientation = Quaternion(quat[0], quat[1], quat[2], quat[3])
+        move_arm(goal)
+        _, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
+        r, p, y = tf.transformations.euler_from_quaternion(quat)
+        if (abs(r) < 0.01
+            and abs(p) < 0.01
+            and abs(y) < 0.01
+        ) or N == N_tries:
+            break
+        N = N + 1
+    N = 0
+    while True:
+        pos, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
+        pos[0] += 0.25
+        pos[2] -= 0.5
+        r, p, y = tf.transformations.euler_from_quaternion(quat)
+        rospy.loginfo(
+            "Delta Position: ["
+            + str(pos[0])
+            + ", "
+            + str(pos[1])
+            + ", "
+            + str(pos[2])
+            + "]"
+        )
+        goal = PoseStamped()
+        goal.header.frame_id = gripper
+        goal.pose.position = Point(pos[0], pos[1], pos[2])
+        goal.pose.orientation = Quaternion(quat[0], quat[1], quat[2], quat[3])
+        move_arm(goal)
+        pos, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
+        r, p, y = tf.transformations.euler_from_quaternion(quat)
+        if (
+            abs(pos[0] - 0.25) < 0.01
+            and abs(pos[1]) < 0.01
+            and abs(r) < 0.01
+            and abs(p) < 0.01
+            and abs(y) < 0.01
+        ) or N == N_tries:
+            break
+        N = N + 1
+    return None
+
+def move_arm_to_place(target_shelf_layer):
+    N = 0
+    while True:
+        pos, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
+        pos[0] += 0.25
+        pos[2] -= 0.4
+        r, p, y = tf.transformations.euler_from_quaternion(quat)
+        rospy.loginfo(
+            "Delta Position: ["
+            + str(pos[0])
+            + ", "
+            + str(pos[1])
+            + ", "
+            + str(pos[2])
+            + "]"
+        )
+        goal = PoseStamped()
+        goal.header.frame_id = gripper
+        goal.pose.position = Point(pos[0], pos[1], pos[2])
+        goal.pose.orientation = Quaternion(quat[0], quat[1], quat[2], quat[3])
+        move_arm(goal)
+        pos, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
+        r, p, y = tf.transformations.euler_from_quaternion(quat)
+        if (
+            abs(pos[0] - 0.25) < 0.01
+            and abs(pos[1]) < 0.01
+            and abs(r) < 0.01
+            and abs(p) < 0.01
+            and abs(y) < 0.01
+        ) or N == N_tries:
+            break
+        N = N + 1
+    return None
+
+def move_arm_to_post_place():
+    goal = PoseStamped()
+    goal.header.frame_id = gripper
+    goal.pose.position = Point(0, 0, -0.3)
+    move_arm(goal)
+    return None
 
 if __name__ == "__main__":
     rospy.init_node("replenishment")
+
+    tf_listener = tf.TransformListener()
+
+    tfBuffer = tf2_ros.Buffer()
+    tf2_ros.TransformListener(tfBuffer)
 
     rospy.sleep(1)
     # set_objects_unreal()
@@ -331,14 +428,34 @@ if __name__ == "__main__":
     }
     set_joint_goal(goal_js)
 
-    target_object = "ProductWithAN036946_0"
+    target_object = "ProductWithAN036946_1"
     move_arm_to_pre_pick(target_object)
 
     move_arm_to_pick(target_object)
 
     control_gripper(gripper_client, open=False)
 
-    move_arm_to_post_pick(target_object)
+    move_arm_to_post_pick()
+
+    target_shelf_layer = "ShelfLayer6TilesL38"
+    move_arm_to_pre_place(target_shelf_layer)
+
+    move_arm_to_place(target_shelf_layer)
+
+    control_gripper(gripper_client, open=True)
+
+    move_arm_to_post_place()
+
+    goal_js = {
+        "panda_joint1": 0.0,
+        "panda_joint2": 1.0,
+        "panda_joint3": 0.0,
+        "panda_joint4": -0.6,
+        "panda_joint5": 0.0,
+        "panda_joint6": 1.6,
+        "panda_joint7": 0.7,
+    }
+    set_joint_goal(goal_js)
 
     # # Create a goal for the right hand
     # giskard_wrapper.allow_self_collision()
