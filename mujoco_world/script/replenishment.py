@@ -364,7 +364,7 @@ def move_arm_to_place(target_shelf_layer, i):
     N = 0
     while True:
         pos, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
-        pos[0] += 0.21 - 0.015 * N
+        pos[0] += 0.18 - 0.015 * N
         pos[1] += 0.0
         pos[2] -= 0.3 + 0.05 * i
         r, p, y = tf.transformations.euler_from_quaternion(quat)
@@ -399,9 +399,9 @@ def move_arm_to_place(target_shelf_layer, i):
 
 def move_arm_to_post_place():
     goal = PoseStamped()
-    goal.header.frame_id = "base_link"
-    goal.pose.position = Point(0, -0.4, 0.0)
-    move_arm(goal, root_link="odom", tip_link="base_link")
+    goal.header.frame_id = gripper
+    goal.pose.position = Point(0.0, 0.0, -0.4)
+    move_arm(goal, root_link="odom", tip_link=gripper)
     return None
 
 
@@ -443,7 +443,7 @@ if __name__ == "__main__":
         }
         set_joint_goal(goal_js)
 
-        move_to_target(rp_move_base_client, 8.0, -3.6, 0.0)
+        move_to_target(rp_move_base_client, 7.5, -3.6, 0.0)
 
         rp_move_base_client.wait_for_result()
 
