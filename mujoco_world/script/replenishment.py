@@ -228,7 +228,8 @@ def get_pose_gripper_T_shelf_layer(shelf_layer):
 
 def get_quat_gripper_T_gripper_goal():
     try:
-        tf_listener.waitForTransform("map", gripper, rospy.Time(), rospy.Duration(5))
+        tf_listener.waitForTransform(
+            "map", gripper, rospy.Time(), rospy.Duration(5))
     except TransformException as e:
         rospy.logwarn(gripper + " not found")
     else:
@@ -364,7 +365,7 @@ def move_arm_to_place(target_shelf_layer, i):
     N = 0
     while True:
         pos, quat = get_pose_gripper_T_shelf_layer(target_shelf_layer)
-        pos[0] += 0.18 - 0.015 * N
+        pos[0] += 0.2
         pos[1] += 0.0
         pos[2] -= 0.3 + 0.05 * i
         r, p, y = tf.transformations.euler_from_quaternion(quat)
@@ -378,7 +379,8 @@ def move_arm_to_place(target_shelf_layer, i):
             + "]"
         )
         rospy.loginfo(
-            "Place - Delta Rotation: [" + str(r) + ", " + str(p) + ", " + str(y) + "]"
+            "Place - Delta Rotation: [" +
+            str(r) + ", " + str(p) + ", " + str(y) + "]"
         )
         if (
             abs(pos[1]) < 0.01
@@ -443,7 +445,7 @@ if __name__ == "__main__":
         }
         set_joint_goal(goal_js)
 
-        move_to_target(rp_move_base_client, 7.5, -3.6, 0.0)
+        move_to_target(rp_move_base_client, 8.0, -3.6, 0.0)
 
         rp_move_base_client.wait_for_result()
 
