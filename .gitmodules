@@ -1,3 +1,4 @@
 [submodule "iai_maps"]
 	path = iai_maps
 	url = git@github.com:code-iai/iai_maps.git
+	branch = AddUnrealMap
