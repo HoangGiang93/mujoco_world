@@ -3,7 +3,7 @@
         <flag sensornoise="disable" energy="disable" contact="enable" />
     </option>
     <compiler angle="radian"
-        meshdir="/home/giangnguyen/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/iai_apartment/meshes/"
+        meshdir="iai_apartment/meshes/"
         autolimits="true" />
     <default />
     <asset>
