@@ -14,6 +14,16 @@
         <mesh name="SM_Dishwasher_Tray_02" file="SM_Dishwasher_Tray_02.stl" />
         <mesh name="SM_Dishwasher_Tray_03" file="SM_Dishwasher_Tray_03.stl" />
     </asset>
+
+    <asset>
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4" />
+        <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
+    </asset>
+    <worldbody>
+        <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" />
+        <light diffuse=".5 .5 .5" pos="0 0 5" dir="0 0 -1" />
+    </worldbody>
+
     <worldbody>
         <body name="iai_apartment" gravcomp="1">
             <geom size="1.525 9.475 0.0015" pos="9.45 0.135 1.53" quat="0.500398 0.499602 0.5 -0.5"
