@@ -5,7 +5,7 @@
 <!-- =================================================================================== -->
 <robot name="apartment">
     <mujoco>
-        <compiler meshdir="/home/giangnguyen/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/iai_apartment_with_window4/meshes" strippath="false" balanceinertia="true" discardvisual="true"/>
+        <compiler meshdir="/home/giang/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/iai_apartment_with_window4/meshes" strippath="false" balanceinertia="true" discardvisual="true"/>
     </mujoco>
     <link name="apartment_root">
         <origin rpy="0 0 0" xyz="0 0 0"/>

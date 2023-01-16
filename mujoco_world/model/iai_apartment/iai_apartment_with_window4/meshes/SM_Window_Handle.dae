@@ -13,14 +13,14 @@
   <library_effects>
     <effect id="_Game_Materials_Laborraum_M_Metal_Chrome_M_Metal_Chrome-effect">
       <profile_COMMON>
-        <newparam sid="M_Metal_Chrome_M_Metal_Chrome_D_bmp_001-surface">
+        <newparam sid="M_Metal_Chrome_M_Metal_Chrome_D_bmp-surface">
           <surface type="2D">
-            <init_from>M_Metal_Chrome_M_Metal_Chrome_D_bmp_001</init_from>
+            <init_from>M_Metal_Chrome_M_Metal_Chrome_D_bmp</init_from>
           </surface>
         </newparam>
-        <newparam sid="M_Metal_Chrome_M_Metal_Chrome_D_bmp_001-sampler">
+        <newparam sid="M_Metal_Chrome_M_Metal_Chrome_D_bmp-sampler">
           <sampler2D>
-            <source>M_Metal_Chrome_M_Metal_Chrome_D_bmp_001-surface</source>
+            <source>M_Metal_Chrome_M_Metal_Chrome_D_bmp-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -29,7 +29,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <texture texture="M_Metal_Chrome_M_Metal_Chrome_D_bmp_001-sampler" texcoord="UVMap"/>
+              <texture texture="M_Metal_Chrome_M_Metal_Chrome_D_bmp-sampler" texcoord="UVMap"/>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -40,8 +40,8 @@
     </effect>
   </library_effects>
   <library_images>
-    <image id="M_Metal_Chrome_M_Metal_Chrome_D_bmp_001" name="M_Metal_Chrome_M_Metal_Chrome_D_bmp_001">
-      <init_from>M_Metal_Chrome_M_Metal_Chrome_D.bmp.001.bmp</init_from>
+    <image id="M_Metal_Chrome_M_Metal_Chrome_D_bmp" name="M_Metal_Chrome_M_Metal_Chrome_D_bmp">
+      <init_from>M_Metal_Chrome_M_Metal_Chrome_D.bmp</init_from>
     </image>
   </library_images>
   <library_materials>

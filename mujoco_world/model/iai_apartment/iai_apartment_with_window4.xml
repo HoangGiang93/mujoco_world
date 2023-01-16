@@ -4,7 +4,8 @@
     </option>
     <compiler angle="radian"
         meshdir="iai_apartment_with_window4/meshes/"
-        autolimits="true" />
+        autolimits="true">
+    </compiler>
     <default />
     <asset>
         <mesh name="armchair" file="armchair.stl" />
@@ -16,7 +17,8 @@
     </asset>
 
     <asset>
-        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4" />
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3"
+            rgb2=".2 .3 .4" />
         <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
     </asset>
     <worldbody>
@@ -307,10 +309,10 @@
                 quat="0.707107 0 0 0.707107" type="box" />
             <geom size="0.01 0.339444 0.451805" pos="2.6375 1.16089 0.446014"
                 quat="0.707107 0 0 0.707107" type="box" />
-            <body name="window4_left" pos="10.4455 5.12111 1.09596" >
+            <body name="window4_left" pos="10.4455 5.12111 1.09596" gravcomp="0">
                 <joint name="window4_left_joint" pos="0 0 0" axis="0 0 1" range="0 1.5708" />
                 <geom size="0.421713 0.01 1.02988" pos="-0.429577 0.000856 0" type="box" />
-                <body name="window4_left_handle" pos="-0.823253 -0.026228 0" >
+                <body name="window4_left_handle" pos="-0.823253 -0.026228 0" gravcomp="0">
                     <joint name="window4_left_handle_joint" pos="0 0 0" axis="0 -1 0"
                         range="0 3.14159" />
                     <geom size="0.008 0.037618" pos="0 -0.011369 0" quat="0.707107 0.707107 0 0"
@@ -320,7 +322,7 @@
                         quat="0.707107 0.707107 0 0" type="cylinder" />
                 </body>
             </body>
-            <body name="wardrobe_door_left" pos="18.2336 1.6169 0" >
+            <body name="wardrobe_door_left" pos="18.2336 1.6169 0" gravcomp="0">
                 <joint name="wardrobe_door_left_joint" pos="0 0 0" axis="0 0 -1" range="0 1.5708" />
                 <geom size="0.0064835 0.247719 0.82422" pos="-0.006435 -0.2485 0.975" type="box" />
                 <geom size="0.016778 0.007541 0.0072935" pos="-0.021668 -0.460513 1.03271"
@@ -328,7 +330,7 @@
                 <geom size="0.007243 0.007541 0.065" pos="-0.045689 -0.460513 0.973703" type="box" />
                 <geom size="0.016778 0.007541 0.0072935" pos="-0.021668 -0.460513 0.9147" type="box" />
             </body>
-            <body name="wardrobe_door_right" pos="18.2336 0.6169 0" >
+            <body name="wardrobe_door_right" pos="18.2336 0.6169 0" gravcomp="0">
                 <joint name="wardrobe_door_right_joint" pos="0 0 0" axis="0 0 1" range="0 1.5708" />
                 <geom size="0.0064835 0.247719 0.82422" pos="-0.006435 0.2485 0.975" type="box" />
                 <geom size="0.016778 0.007541 0.0072935" pos="-0.021668 0.460513 1.03271" type="box" />
@@ -336,7 +338,7 @@
                 <geom size="0.016778 0.007541 0.0072935" pos="-0.021668 0.460513 0.9147" type="box" />
             </body>
             <body name="coffee_table_drawer" pos="16.6534 2.77957 0" quat="0.707105 0 0 0.707108"
-                >
+                gravcomp="0">
                 <joint name="coffee_table_drawer_joint" pos="0 0 0" axis="-1 0 0" type="slide"
                     range="0 0.5" />
                 <geom size="0.0107 0.198 0.157845" pos="-0.338806 0 0.21892" type="box" />
@@ -346,7 +348,7 @@
                 <geom size="0.27605 0.0107 0.132125" pos="-0.051066 0.186206 0.226597" type="box" />
             </body>
             <body name="cabinet1_door" pos="0.564632 1.18676 1.79141" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="cabinet1_door_joint" pos="0 0 0" axis="0 0 -1" range="0 1.5708" />
                 <geom size="0.298468 0.0095 0.433405" pos="0.285091 0 0" type="box" />
                 <geom size="0.01 0.0065 0.0065" pos="0.383156 -0.0194908 -0.389834"
@@ -357,7 +359,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet1_drawer1" pos="0.331422 1.47798 0.627821"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet1_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.298468 0.0095 0.131486" pos="0 -0.233977 0" type="box" />
@@ -376,7 +378,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet1_drawer2" pos="0.330632 1.47776 0.298406"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet1_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.298468 0.0095 0.19714" pos="0 -0.233977 0" type="box" />
@@ -396,12 +398,12 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="oven_door" pos="0.558591 1.47912 0.771734" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="oven_door_joint" pos="0 0 0" axis="1 0 0" range="0 1.5708" />
                 <geom size="0.295294 0.018499 0.235848" pos="-0.002993 0.005395 0.226757" type="box" />
             </body>
             <body name="cabinet2_door" pos="0.564231 1.79048 1.16345" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="cabinet2_door_joint" pos="0 0 0" axis="0 0 -1" range="0 1.5708" />
                 <geom size="0.198479 0.0095 1.06138" pos="0.185074 -0.000653 0" type="box" />
                 <geom size="0.01 0.0065 0.0065" pos="0.17886 -0.00574094 -0.105189"
@@ -412,7 +414,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet2_drawer1" pos="0.284557 1.9784 1.74285" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="cabinet2_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.180981 0.0085 0.050495" pos="0 -0.242975 0" type="box" />
@@ -422,7 +424,7 @@
                 <geom size="0.180981 0.247489 0.010749" pos="0 -0.003984 -0.039746" type="box" />
             </body>
             <body name="cabinet2_drawer2" pos="0.284557 1.9784 1.58514" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="cabinet2_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.180981 0.006898 0.049" pos="0 -0.242374 -0.042" type="box" />
@@ -437,7 +439,7 @@
                 <geom size="0.180981 0.247489 0.010749" pos="0 -0.003984 -0.080242" type="box" />
             </body>
             <body name="cabinet2_drawer3" pos="0.284557 1.9784 1.30529" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="cabinet2_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.180981 0.006898 0.049" pos="0 -0.242374 -0.042" type="box" />
@@ -452,7 +454,7 @@
                 <geom size="0.180981 0.247489 0.010749" pos="0 -0.003984 -0.080242" type="box" />
             </body>
             <body name="cabinet2_drawer4" pos="0.284557 1.9784 0.919952"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet2_drawer4_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.180981 0.006898 0.049" pos="0 -0.242374 -0.042" type="box" />
@@ -467,7 +469,7 @@
                 <geom size="0.180981 0.247489 0.010749" pos="0 -0.003984 -0.080242" type="box" />
             </body>
             <body name="cabinet2_drawer5" pos="0.284557 1.9784 0.644293"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet2_drawer5_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.180981 0.006898 0.049" pos="0 -0.242374 -0.042" type="box" />
@@ -482,7 +484,7 @@
                 <geom size="0.180981 0.247489 0.010749" pos="0 -0.003984 -0.080242" type="box" />
             </body>
             <body name="cabinet2_drawer6" pos="0.284557 1.9784 0.207197"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet2_drawer6_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.180981 0.006898 0.049" pos="0 -0.242374 -0.042" type="box" />
@@ -497,7 +499,7 @@
                 <geom size="0.180981 0.247489 0.010749" pos="0 -0.003984 -0.080242" type="box" />
             </body>
             <body name="fridge_door1" pos="0.572244 2.18075 1.41962" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_door1_joint" pos="0 0 0" axis="0 0 -1" range="0 1.5708" />
                 <geom size="0.298246 0.009277 0.668339" pos="0.297325 0.006948 0.139709" type="box" />
                 <geom size="0.276867 0.0125 0.494447" pos="0.295455 0.03605 -0.001115" type="box" />
@@ -531,7 +533,7 @@
                     mesh="SM_Fridge_Egg_Tray" />
             </body>
             <body name="fridge_door2" pos="0.572244 2.18081 0.524871" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_door2_joint" pos="0 0 0" axis="0 0 -1" range="0 1.5708" />
                 <geom size="0.298246 0.009277 0.39297" pos="0.297325 0.006948 -0.028308" type="box" />
                 <geom size="0.276867 0.0125 0.311166" pos="0.295455 0.03605 0.019366" type="box" />
@@ -543,7 +545,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="fridge_drawer1" pos="0.306256 2.48059 1.19144" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom size="0.227117 0.0025 0.011921" pos="0 -0.169309 0.070506" type="box" />
@@ -554,7 +556,7 @@
                 <geom size="0.227117 0.171761 0.001372" pos="0 0 -0.080999" type="box" />
             </body>
             <body name="fridge_drawer2" pos="0.30965 2.48481 1.03157" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom size="0.227117 0.0025 0.011801" pos="0 -0.169309 0.057007" type="box" />
@@ -565,7 +567,7 @@
                 <geom size="0.227117 0.171761 0.001372" pos="0 0 -0.066161" type="box" />
             </body>
             <body name="fridge_drawer3" pos="0.326823 2.4803 0.725009" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom size="0.204478 0.001 0.012462" pos="0 -0.165482 0.083453" type="box" />
@@ -576,7 +578,7 @@
                 <geom size="0.204478 0.161445 0.000911" pos="0 -0.004962 -0.095072" type="box" />
             </body>
             <body name="fridge_drawer4" pos="0.323019 2.47774 0.548187" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_drawer4_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom size="0.204478 0.001 0.012462" pos="0 -0.165482 0.063456" type="box" />
@@ -587,7 +589,7 @@
                 <geom size="0.204478 0.166408 0.001" pos="0 0 -0.074992" type="box" />
             </body>
             <body name="fridge_drawer5" pos="0.358974 2.48282 0.368398" quat="0.707107 0 0 0.707107"
-                >
+                gravcomp="0">
                 <joint name="fridge_drawer5_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom size="0.204404 0.001 0.012499" pos="0 -0.120488 0.08099" type="box" />
@@ -598,7 +600,7 @@
                 <geom size="0.204404 0.120421 0.001" pos="0 0 -0.09249" type="box" />
             </body>
             <body name="cabinet5_drawer1" pos="0.327393 3.08512 0.825985"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet5_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.042633" pos="-0.270267 0.021031 -0.01336" type="box" />
@@ -614,7 +616,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet5_drawer2" pos="0.327804 3.08491 0.627931"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet5_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011649" pos="-0.270267 0.021031 0.041246" type="box" />
@@ -632,7 +634,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet5_drawer3" pos="0.328217 3.08487 0.29854"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet5_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011638" pos="-0.270267 0.021031 -0.00926" type="box" />
@@ -650,7 +652,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet6_drawer1" pos="0.328062 3.58416 0.825985"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet6_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.042633" pos="-0.170562 0.021031 -0.01336" type="box" />
@@ -666,7 +668,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet6_drawer2" pos="0.327823 3.58458 0.627175"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet6_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011649" pos="-0.170562 0.021031 0.041246" type="box" />
@@ -684,7 +686,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet6_drawer3" pos="0.327564 3.58453 0.297298"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="cabinet6_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011638" pos="-0.170562 0.021031 -0.00926" type="box" />
@@ -702,11 +704,11 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="counter_sink_tap_switch" pos="2.75435 3.3144 1.01332"
-                quat="0.707107 0 0 0.707107" >
+                quat="0.707107 0 0 0.707107" gravcomp="0">
                 <joint name="counter_sink_tap_temperature_joint" pos="0 0 0" axis="1 0 0"
                     range="-1.5708 1.5708" />
                 <geom size="0.0005 0.0005 0.0005" type="box" />
-                <body name="counter_sink_tap" pos="0 0 0" >
+                <body name="counter_sink_tap" pos="0 0 0" gravcomp="0">
                     <joint name="counter_sink_switch_joint" pos="0 0 0" axis="0 -1 0"
                         range="0 0.392699" />
                     <geom size="0.022432 0.012197" pos="-0.007501 0 0" quat="0.707107 0 0.707107 0"
@@ -715,7 +717,7 @@
                 </body>
             </body>
             <body name="dishwasher_front" pos="2.34807 3.96324 0.169551"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="dishwasher_front_joint" pos="0 0 0" axis="1 0 0" range="0 1.5708" />
                 <geom size="0.304987 0.009444 0.397179" pos="0 -0.04 0.329015" type="box" />
                 <geom size="0.287469 0.015 0.339603" pos="-0.01 -0.015728 0.334215" type="box" />
@@ -727,25 +729,25 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="dishwasher_tray1" pos="2.61821 3.97091 0.3894" quat="0.707107 0 0 -0.707107"
-                >
+                gravcomp="0">
                 <joint name="dishwasher_tray1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.5" />
                 <geom type="mesh" mesh="SM_Dishwasher_Tray_01" />
             </body>
             <body name="dishwasher_tray2" pos="2.60161 3.97091 0.564592"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="dishwasher_tray2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom type="mesh" mesh="SM_Dishwasher_Tray_02" />
             </body>
             <body name="dishwasher_tray3" pos="2.62207 3.97668 0.773578"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="dishwasher_tray3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom type="mesh" mesh="SM_Dishwasher_Tray_03" />
             </body>
             <body name="sink_drawer1" pos="2.54181 3.37246 0.497681" quat="0.707107 0 0 -0.707107"
-                >
+                gravcomp="0">
                 <joint name="sink_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.298258 0.009388 0.397013" pos="0 -0.233976 0" type="box" />
@@ -795,7 +797,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="sink_drawer2" pos="2.51969 3.37374 0.658859" quat="0.707107 0 0 -0.707107"
-                >
+                gravcomp="0">
                 <joint name="sink_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.3" />
                 <geom size="0.008 0.188013 0.041105" pos="-0.270604 0.002535 -0.000733" type="box" />
@@ -807,7 +809,7 @@
                 <geom size="0.278678 0.188013 0.008" pos="0 0.002535 -0.036496" type="box" />
             </body>
             <body name="cabinet9_drawer1" pos="2.54209 2.77093 0.826152"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet9_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.042633" pos="-0.270267 0.021031 -0.01336" type="box" />
@@ -823,7 +825,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet9_drawer2" pos="2.54213 2.77204 0.629012"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet9_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011649" pos="-0.270267 0.021031 0.041246" type="box" />
@@ -841,7 +843,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet9_drawer3" pos="2.54243 2.77102 0.297954"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet9_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011638" pos="-0.270267 0.021031 -0.00926" type="box" />
@@ -859,7 +861,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet10_drawer1" pos="2.54203 2.27254 0.826772"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet10_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.042633" pos="-0.170562 0.021031 -0.01336" type="box" />
@@ -875,7 +877,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet10_drawer2" pos="2.54228 2.27185 0.629172"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet10_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011649" pos="-0.170562 0.021031 0.041246" type="box" />
@@ -893,7 +895,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet10_drawer3" pos="2.54259 2.27155 0.297152"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet10_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011638" pos="-0.170562 0.021031 -0.00926" type="box" />
@@ -911,7 +913,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet11_drawer1" pos="2.54211 1.6222 0.828013"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet11_drawer1_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.042633" pos="-0.418233 0.021031 -0.01336" type="box" />
@@ -927,7 +929,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet11_drawer2" pos="2.54263 1.62202 0.629023"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet11_drawer2_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011649" pos="-0.418233 0.021031 0.041246" type="box" />
@@ -945,7 +947,7 @@
                     quat="0.707107 0 0 0.707107" type="box" />
             </body>
             <body name="cabinet11_drawer3" pos="2.54216 1.62302 0.296537"
-                quat="0.707107 0 0 -0.707107" >
+                quat="0.707107 0 0 -0.707107" gravcomp="0">
                 <joint name="cabinet11_drawer3_joint" pos="0 0 0" axis="0 -1 0" type="slide"
                     range="0 0.45" />
                 <geom size="0.008 0.245507 0.011638" pos="-0.418233 0.021031 -0.00926" type="box" />
@@ -967,53 +969,53 @@
     <equality />
 
     <contact>
-        <exclude body1="iai_apartment_with_window4" body2="wardrobe_door_left"/>
-        <exclude body1="iai_apartment_with_window4" body2="wardrobe_door_right"/>
-        <exclude body1="iai_apartment_with_window4" body2="coffee_table_drawer"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet1_door"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet1_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet1_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="oven_door"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_door"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer4"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer5"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer6"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_door1"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_door2"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer4"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer5"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet5_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet5_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet5_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet6_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet6_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet6_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer4"/>
-        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer5"/>
-        <exclude body1="iai_apartment_with_window4" body2="counter_sink_tap_switch"/>
-        <exclude body1="iai_apartment_with_window4" body2="counter_sink_tap"/>
-        <exclude body1="counter_sink_tap_switch" body2="counter_sink_tap"/>
-        <exclude body1="iai_apartment_with_window4" body2="dishwasher_front"/>
-        <exclude body1="iai_apartment_with_window4" body2="dishwasher_tray1"/>
-        <exclude body1="iai_apartment_with_window4" body2="dishwasher_tray2"/>
-        <exclude body1="iai_apartment_with_window4" body2="dishwasher_tray3"/>
-        <exclude body1="iai_apartment_with_window4" body2="sink_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="sink_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet9_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet9_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet9_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet10_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet10_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet10_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet11_drawer1"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet11_drawer2"/>
-        <exclude body1="iai_apartment_with_window4" body2="cabinet11_drawer3"/>
-        <exclude body1="iai_apartment_with_window4" body2="window4_left"/>
+        <exclude body1="iai_apartment_with_window4" body2="wardrobe_door_left" />
+        <exclude body1="iai_apartment_with_window4" body2="wardrobe_door_right" />
+        <exclude body1="iai_apartment_with_window4" body2="coffee_table_drawer" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet1_door" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet1_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet1_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="oven_door" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_door" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer4" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer5" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet2_drawer6" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_door1" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_door2" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer4" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer5" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet5_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet5_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet5_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet6_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet6_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet6_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer4" />
+        <exclude body1="iai_apartment_with_window4" body2="fridge_drawer5" />
+        <exclude body1="iai_apartment_with_window4" body2="counter_sink_tap_switch" />
+        <exclude body1="iai_apartment_with_window4" body2="counter_sink_tap" />
+        <exclude body1="counter_sink_tap_switch" body2="counter_sink_tap" />
+        <exclude body1="iai_apartment_with_window4" body2="dishwasher_front" />
+        <exclude body1="iai_apartment_with_window4" body2="dishwasher_tray1" />
+        <exclude body1="iai_apartment_with_window4" body2="dishwasher_tray2" />
+        <exclude body1="iai_apartment_with_window4" body2="dishwasher_tray3" />
+        <exclude body1="iai_apartment_with_window4" body2="sink_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="sink_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet9_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet9_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet9_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet10_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet10_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet10_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet11_drawer1" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet11_drawer2" />
+        <exclude body1="iai_apartment_with_window4" body2="cabinet11_drawer3" />
+        <exclude body1="iai_apartment_with_window4" body2="window4_left" />
     </contact>
 </mujoco>
