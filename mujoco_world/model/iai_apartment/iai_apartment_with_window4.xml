@@ -15,7 +15,11 @@
         <mesh name="SM_Dishwasher_Tray_02" file="SM_Dishwasher_Tray_02.stl" />
         <mesh name="SM_Dishwasher_Tray_03" file="SM_Dishwasher_Tray_03.stl" />
     </asset>
-
+    <asset>
+        <mesh name="bowl_cone" file="/home/giang/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/bowl/meshes/bowl_cone.stl" />
+        <mesh name="bowl_bottom" file="/home/giang/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/bowl/meshes/bowl_bottom.stl" />
+        <mesh name="bowl_side" file="/home/giang/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/bowl/meshes/bowl_side.stl" />
+    </asset>
     <asset>
         <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3"
             rgb2=".2 .3 .4" />
