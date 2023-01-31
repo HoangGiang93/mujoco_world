@@ -37,10 +37,10 @@
           <geom name="bowl_side_24" type="mesh" euler="0 0 -1.7671458676442586" mesh="bowl_side" rgba="1 0 0 1" />
           <geom name="bowl_side_25" type="mesh" euler="0 0 -1.5707963267948966" mesh="bowl_side" rgba="1 0 0 1" />
           <geom name="bowl_side_26" type="mesh" euler="0 0 -1.3744467859455345" mesh="bowl_side" rgba="1 0 0 1" />
-          <geom name="bowl_side_26" type="mesh" euler="0 0 -1.1780972450961724" mesh="bowl_side" rgba="1 0 0 1" />
-          <geom name="bowl_side_27" type="mesh" euler="0 0 -0.9817477042468103" mesh="bowl_side" rgba="1 0 0 1" />
-          <geom name="bowl_side_28" type="mesh" euler="0 0 -0.7853981633974483" mesh="bowl_side" rgba="1 0 0 1" />
-          <geom name="bowl_side_29" type="mesh" euler="0 0 -0.5890486225480862" mesh="bowl_side" rgba="1 0 0 1" />
+          <geom name="bowl_side_27" type="mesh" euler="0 0 -1.1780972450961724" mesh="bowl_side" rgba="1 0 0 1" />
+          <geom name="bowl_side_28" type="mesh" euler="0 0 -0.9817477042468103" mesh="bowl_side" rgba="1 0 0 1" />
+          <geom name="bowl_side_29" type="mesh" euler="0 0 -0.7853981633974483" mesh="bowl_side" rgba="1 0 0 1" />
+          <geom name="bowl_side_30" type="mesh" euler="0 0 -0.5890486225480862" mesh="bowl_side" rgba="1 0 0 1" />
           <geom name="bowl_side_31" type="mesh" euler="0 0 -0.39269908169872414" mesh="bowl_side" rgba="1 0 0 1" />
           <geom name="bowl_side_32" type="mesh" euler="0 0 -0.19634954084936207" mesh="bowl_side" rgba="1 0 0 1" />
       </body>
