@@ -1,4 +1,6 @@
 <mujoco>
+  <option noslip_iterations="5" noslip_tolerance="1e-6">
+  </option>
   <compiler angle="radian" />
   <worldbody>
       <body name="cup" pos="0 0 0">
