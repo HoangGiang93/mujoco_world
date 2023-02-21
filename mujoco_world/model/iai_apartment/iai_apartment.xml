@@ -3,7 +3,7 @@
         <flag sensornoise="disable" energy="disable" contact="enable" />
     </option>
     <compiler angle="radian"
-        meshdir="iai_apartment/meshes/"
+        meshdir="iai_apartment/stl/"
         autolimits="true" />
     <default />
     <asset>

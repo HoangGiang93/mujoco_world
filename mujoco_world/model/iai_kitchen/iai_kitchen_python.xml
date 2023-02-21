@@ -1,5 +1,5 @@
 <mujoco model="iai_kitchen">
-    <compiler meshdir="iai_kitchen_python/meshes/" />
+    <compiler meshdir="iai_kitchen_python/stl/" />
     <asset>
         <mesh name="SinkArea0" file="Shape_IndexedFaceSet.001_Shape_IndexedFaceSet.273.stl" />
         <mesh name="SinkArea1" file="Shape_IndexedFaceSet.002_Shape_IndexedFaceSet.274.stl" />

@@ -6,41 +6,41 @@
   <asset>
     <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4" />
     <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
-    <mesh name="ShelfLayer4TilesL10_Bottom" file="world/meshes/ShelfLayer4TilesL10_Bottom.stl" />
-    <mesh name="ShelfLayer4TilesL10" file="world/meshes/ShelfLayer4TilesL10.stl" />
-    <mesh name="ShelfLayer5TilesL10_Bottom" file="world/meshes/ShelfLayer5TilesL10_Bottom.stl" />
-    <mesh name="ShelfLayer5TilesL10" file="world/meshes/ShelfLayer5TilesL10.stl" />
-    <mesh name="ShelfLayer5TilesL12" file="world/meshes/ShelfLayer5TilesL12.stl" />
-    <mesh name="ShelfLayer5TilesL6" file="world/meshes/ShelfLayer5TilesL6.stl" />
-    <mesh name="ShelfLayer5TilesL7" file="world/meshes/ShelfLayer5TilesL7.stl" />
-    <mesh name="ShelfLayer6TilesL10_Bottom" file="world/meshes/ShelfLayer6TilesL10_Bottom.stl" />
-    <mesh name="ShelfLayer6TilesL10" file="world/meshes/ShelfLayer6TilesL10.stl" />
-    <mesh name="ShelfLayer6TilesL12_Bottom" file="world/meshes/ShelfLayer6TilesL12_Bottom.stl" />
-    <mesh name="ShelfLayer6TilesL12" file="world/meshes/ShelfLayer6TilesL12.stl" />
-    <mesh name="ShelfLayer6TilesL6_Bottom" file="world/meshes/ShelfLayer6TilesL6_Bottom.stl" />
-    <mesh name="ShelfLayer6TilesL7_Bottom" file="world/meshes/ShelfLayer6TilesL7_Bottom.stl" />
-    <mesh name="ShelfLayer7TilesL10_Bottom" file="world/meshes/ShelfLayer7TilesL10_Bottom.stl" />
-    <mesh name="ShelfLayer7TilesL12_Bottom" file="world/meshes/ShelfLayer7TilesL12_Bottom.stl" />
-    <mesh name="ShelfLayerMounting" file="world/meshes/ShelfLayerMounting.stl" />
-    <mesh name="ShelfSeparator" file="world/meshes/ShelfSeparator.stl" />
-    <mesh name="ShelfSystemH160T4L10W" file="world/meshes/ShelfSystemH160T4L10W.stl" />
-    <mesh name="ShelfSystemH160T5L10G" file="world/meshes/ShelfSystemH160T5L10G.stl" />
-    <mesh name="ShelfSystemH160T5L10W" file="world/meshes/ShelfSystemH160T5L10W.stl" />
-    <mesh name="ShelfSystemH160T6L10G" file="world/meshes/ShelfSystemH160T6L10G.stl" />
-    <mesh name="ShelfSystemH160T6L10W" file="world/meshes/ShelfSystemH160T6L10W.stl" />
-    <mesh name="ShelfSystemH180T5L10G" file="world/meshes/ShelfSystemH180T5L10G.stl" />
-    <mesh name="ShelfSystemH180T5L10W" file="world/meshes/ShelfSystemH180T5L10W.stl" />
-    <mesh name="ShelfSystemH180T5L6W" file="world/meshes/ShelfSystemH180T5L6W.stl" />
-    <mesh name="ShelfSystemH200T5L10W" file="world/meshes/ShelfSystemH200T5L10W.stl" />
-    <mesh name="ShelfSystemH200T5L12W" file="world/meshes/ShelfSystemH200T5L12W.stl" />
-    <mesh name="ShelfSystemH200T5L6W" file="world/meshes/ShelfSystemH200T5L6W.stl" />
-    <mesh name="ShelfSystemH200T6L10W" file="world/meshes/ShelfSystemH200T6L10W.stl" />
-    <mesh name="ShelfSystemH200T6L12W" file="world/meshes/ShelfSystemH200T6L12W.stl" />
-    <mesh name="ShelfSystemH200T6L7W" file="world/meshes/ShelfSystemH200T6L7W.stl" />
-    <mesh name="ShelfSystemH200T7L10W" file="world/meshes/ShelfSystemH200T7L10W.stl" />
-    <mesh name="ShelfSystemH200T7L12W" file="world/meshes/ShelfSystemH200T7L12W.stl" />
+    <mesh name="ShelfLayer4TilesL10_Bottom" file="world/stl/ShelfLayer4TilesL10_Bottom.stl" />
+    <mesh name="ShelfLayer4TilesL10" file="world/stl/ShelfLayer4TilesL10.stl" />
+    <mesh name="ShelfLayer5TilesL10_Bottom" file="world/stl/ShelfLayer5TilesL10_Bottom.stl" />
+    <mesh name="ShelfLayer5TilesL10" file="world/stl/ShelfLayer5TilesL10.stl" />
+    <mesh name="ShelfLayer5TilesL12" file="world/stl/ShelfLayer5TilesL12.stl" />
+    <mesh name="ShelfLayer5TilesL6" file="world/stl/ShelfLayer5TilesL6.stl" />
+    <mesh name="ShelfLayer5TilesL7" file="world/stl/ShelfLayer5TilesL7.stl" />
+    <mesh name="ShelfLayer6TilesL10_Bottom" file="world/stl/ShelfLayer6TilesL10_Bottom.stl" />
+    <mesh name="ShelfLayer6TilesL10" file="world/stl/ShelfLayer6TilesL10.stl" />
+    <mesh name="ShelfLayer6TilesL12_Bottom" file="world/stl/ShelfLayer6TilesL12_Bottom.stl" />
+    <mesh name="ShelfLayer6TilesL12" file="world/stl/ShelfLayer6TilesL12.stl" />
+    <mesh name="ShelfLayer6TilesL6_Bottom" file="world/stl/ShelfLayer6TilesL6_Bottom.stl" />
+    <mesh name="ShelfLayer6TilesL7_Bottom" file="world/stl/ShelfLayer6TilesL7_Bottom.stl" />
+    <mesh name="ShelfLayer7TilesL10_Bottom" file="world/stl/ShelfLayer7TilesL10_Bottom.stl" />
+    <mesh name="ShelfLayer7TilesL12_Bottom" file="world/stl/ShelfLayer7TilesL12_Bottom.stl" />
+    <mesh name="ShelfLayerMounting" file="world/stl/ShelfLayerMounting.stl" />
+    <mesh name="ShelfSeparator" file="world/stl/ShelfSeparator.stl" />
+    <mesh name="ShelfSystemH160T4L10W" file="world/stl/ShelfSystemH160T4L10W.stl" />
+    <mesh name="ShelfSystemH160T5L10G" file="world/stl/ShelfSystemH160T5L10G.stl" />
+    <mesh name="ShelfSystemH160T5L10W" file="world/stl/ShelfSystemH160T5L10W.stl" />
+    <mesh name="ShelfSystemH160T6L10G" file="world/stl/ShelfSystemH160T6L10G.stl" />
+    <mesh name="ShelfSystemH160T6L10W" file="world/stl/ShelfSystemH160T6L10W.stl" />
+    <mesh name="ShelfSystemH180T5L10G" file="world/stl/ShelfSystemH180T5L10G.stl" />
+    <mesh name="ShelfSystemH180T5L10W" file="world/stl/ShelfSystemH180T5L10W.stl" />
+    <mesh name="ShelfSystemH180T5L6W" file="world/stl/ShelfSystemH180T5L6W.stl" />
+    <mesh name="ShelfSystemH200T5L10W" file="world/stl/ShelfSystemH200T5L10W.stl" />
+    <mesh name="ShelfSystemH200T5L12W" file="world/stl/ShelfSystemH200T5L12W.stl" />
+    <mesh name="ShelfSystemH200T5L6W" file="world/stl/ShelfSystemH200T5L6W.stl" />
+    <mesh name="ShelfSystemH200T6L10W" file="world/stl/ShelfSystemH200T6L10W.stl" />
+    <mesh name="ShelfSystemH200T6L12W" file="world/stl/ShelfSystemH200T6L12W.stl" />
+    <mesh name="ShelfSystemH200T6L7W" file="world/stl/ShelfSystemH200T6L7W.stl" />
+    <mesh name="ShelfSystemH200T7L10W" file="world/stl/ShelfSystemH200T7L10W.stl" />
+    <mesh name="ShelfSystemH200T7L12W" file="world/stl/ShelfSystemH200T7L12W.stl" />
 
-    <mesh name="ProductWithAN036946" file="world/meshes/ProductWithAN036946.stl" />
+    <mesh name="ProductWithAN036946" file="world/stl/ProductWithAN036946.stl" />
   </asset>
 
   <worldbody>

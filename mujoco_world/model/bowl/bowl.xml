@@ -1,6 +1,6 @@
 <mujoco>
   <compiler angle="radian" />
-  <compiler meshdir="bowl/meshes/" />
+  <compiler meshdir="bowl/stl/" />
   <asset>
       <mesh name="bowl_cone" file="bowl_cone.stl" />
       <mesh name="bowl_bottom" file="bowl_bottom.stl" />
