@@ -161,7 +161,7 @@ def control_gripper(client: actionlib.SimpleActionClient, open: bool):
         rospy.loginfo("Close gripper")
     client.wait_for_server()
     gripper_cmd_goal = GripperCommandGoal()
-    gripper_cmd_goal.command.position = open * 0.4
+    gripper_cmd_goal.command.position = open * 0.04
     gripper_cmd_goal.command.max_effort = 100.0
     client.send_goal(gripper_cmd_goal)
     return None
