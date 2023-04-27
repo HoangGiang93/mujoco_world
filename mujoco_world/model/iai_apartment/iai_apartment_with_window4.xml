@@ -1,5 +1,5 @@
 <mujoco model="apartment">
-        <compiler angle="radian" meshdir="/home/giang/Workspace/mujoco_ws/src/mujoco_world/mujoco_world/model/iai_apartment/iai_apartment_with_window4/stl/" autolimits="true" boundmass="0.001" boundinertia="0.001"/>
+        <compiler angle="radian" meshdir="iai_apartment_with_window4/stl/" autolimits="true" boundmass="0.001" boundinertia="0.001"/>
     <asset>
         <mesh name="armchair" file="armchair.stl"/>
         <mesh name="sofa" file="sofa.stl"/>
@@ -16,7 +16,7 @@
         <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="4" friction="2 0.05 0.01" />
         <light diffuse=".5 .5 .5" pos="0 0 5" dir="0 0 -1" />
     </worldbody>
-    
+
     <worldbody>
         <body name="apartment">
             <geom size="1.0677 0.01 0.092776" pos="9.5211 5.12273 2.95028" type="box"/>
