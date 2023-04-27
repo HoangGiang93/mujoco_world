@@ -26,16 +26,16 @@ move_base_client = actionlib.SimpleActionClient(
     "/move_base", MoveBaseAction)
 
 gripper_clients = [actionlib.SimpleActionClient(
-    "/tiago/gripper_left_right_finger/gripper_cmd", GripperCommandAction
+    "/gripper_left_right_finger/gripper_cmd", GripperCommandAction
 ),
     actionlib.SimpleActionClient(
-        "/tiago/gripper_left_left_finger/gripper_cmd", GripperCommandAction
+        "/gripper_left_left_finger/gripper_cmd", GripperCommandAction
 ),
     actionlib.SimpleActionClient(
-        "/tiago/gripper_right_left_finger/gripper_cmd", GripperCommandAction
+        "/gripper_right_left_finger/gripper_cmd", GripperCommandAction
 ),
     actionlib.SimpleActionClient(
-        "/tiago/gripper_right_right_finger/gripper_cmd", GripperCommandAction
+        "/gripper_right_right_finger/gripper_cmd", GripperCommandAction
 )]
 
 gripper = "gripper_right_grasping_frame"
@@ -436,7 +436,7 @@ if __name__ == "__main__":
     joint_goals["arm_right_2_joint"] = -0.8
     set_joint_goal(joint_goals)
 
-    pub = rospy.Publisher('/tiago/cmd_vel', Twist, queue_size=10)
+    pub = rospy.Publisher('/tiago_dual/cmd_vel', Twist, queue_size=10)
     twist = Twist()
     twist.linear.x = -0.1
 
